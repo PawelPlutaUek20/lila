@@ -101,8 +101,8 @@ function renderPlayer(
               player.rating && hl('span.elo', `${player.rating}`),
             ]),
           ]),
-          resultNode,
         ]),
+        resultNode,
         materialDiffs[top ? 0 : 1],
         clocks?.[color === 'white' ? 0 : 1],
       ])

@@ -43,9 +43,13 @@
     @extend %flex-center-nowrap;
     flex: 1 1 100%;
     gap: 1em;
+    overflow: hidden;
   }
 
   @extend %result-box;
+  .result {
+    margin-inline-start: 1em;
+  }
 
   .analyse__clock {
     @extend %roboto, %flex-center-nowrap;
