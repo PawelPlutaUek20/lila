@@ -147,6 +147,10 @@ export function make(root: AnalyseCtrl, customPlayableDepth?: () => number): Pra
     return root.turnColor() === root.bottomColor();
   }
 
+  function practiceSucceeded(): boolean {
+    return root.study?.practice?.success() === true;
+  }
+
   function checkCeval() {
     const node = root.node;
     if (!running()) {
@@ -177,7 +181,7 @@ export function make(root: AnalyseCtrl, customPlayableDepth?: () => number): Pra
           if (commentable(olderNode, +1)) comment(makeComment(olderNode, node, root.path));
         }
       }
-      if (!played() && playable(node)) {
+      if (!played() && playable(node) && !practiceSucceeded()) {
         root.playUci(nodeBestUci(node)!);
         played(true);
       } else root.redraw();
