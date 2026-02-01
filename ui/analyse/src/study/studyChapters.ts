@@ -189,7 +189,6 @@ export function view(ctrl: StudyCtrl): VNode {
               } else ctrl.setChapter(id);
             });
             vnode.data!.li = {};
-            ctrl.chapters.scroller.request('instant');
             onListUpdate(ctrl, vnode);
           },
           postpatch(old, vnode) {
@@ -197,6 +196,7 @@ export function view(ctrl: StudyCtrl): VNode {
             onListUpdate(ctrl, vnode);
           },
           destroy: vnode => {
+            ctrl.chapters.scroller.request('instant');
             const sortable: Sortable = vnode.data!.li!.sortable;
             if (sortable) sortable.destroy();
           },
